@@ -1,17 +1,20 @@
 package co.johnnyli.shh_button;
 
 import android.media.MediaPlayer;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
 
     private ImageView ShhButton;
+    private TextView Counter;
+    public static int count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,12 +22,18 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         ImageView ShhButton = (ImageView) findViewById(R.id.button_image);
         ShhButton.setImageResource(R.drawable.angry_button);
+        final TextView Counter = (TextView) findViewById(R.id.counter);
+        Counter.setText("Count: " + count);
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.test);
         ShhButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                mp.start();
+                if (!mp.isPlaying()) {
+                    mp.start();
+                    count++;
+                    Counter.setText("Count: " + count);
+                }
             }
         });
     }
