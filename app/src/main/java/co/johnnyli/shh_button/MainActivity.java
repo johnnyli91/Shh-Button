@@ -7,15 +7,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
 
-    private ImageView ShhButton;
-    private TextView Counter;
     public static int count;
+    public static boolean dim;
+    private CheckBox autoDim;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +39,21 @@ public class MainActivity extends ActionBarActivity {
                 }
             }
         });
-        WindowManager.LayoutParams WMLP = getWindow().getAttributes();
-        WMLP.screenBrightness = 0.0F;
-        getWindow().setAttributes(WMLP);
+        final WindowManager.LayoutParams WMLP = getWindow().getAttributes();
+        autoDim = (CheckBox) findViewById(R.id.autoDim);
+        autoDim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dim = autoDim.isChecked();
+                if (dim) {
+                    WMLP.screenBrightness = 0.0F;
+                    getWindow().setAttributes(WMLP);
+                } else {
+                    WMLP.screenBrightness = 0.3F;
+                    getWindow().setAttributes(WMLP);
+                }
+            }
+        });
     }
 
 
@@ -59,6 +73,8 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+//            Intent settings = new Intent(this, SettingsActivity.class);
+//            startActivity(settings);
             return true;
         }
 

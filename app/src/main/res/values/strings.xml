@@ -4,4 +4,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="counter">Counter: 0</string>
+    <string name="auto_dim">Dim Screen</string>
+    <string name="settings">Settings</string>
 </resources>
