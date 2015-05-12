@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -36,6 +37,9 @@ public class MainActivity extends ActionBarActivity {
                 }
             }
         });
+        WindowManager.LayoutParams WMLP = getWindow().getAttributes();
+        WMLP.screenBrightness = 0.0F;
+        getWindow().setAttributes(WMLP);
     }
 
 
