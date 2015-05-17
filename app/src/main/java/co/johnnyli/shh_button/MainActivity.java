@@ -17,14 +17,15 @@ public class MainActivity extends ActionBarActivity {
     public static int count;
     public static boolean dim;
     private CheckBox autoDim;
+    public static int button;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageView ShhButton = (ImageView) findViewById(R.id.button_image);
-        ShhButton.setImageResource(R.drawable.angry_button);
+        final ImageView ShhButton = (ImageView) findViewById(R.id.button_image);
+        ShhButton.setImageResource(R.drawable.normal_button);
         final TextView Counter = (TextView) findViewById(R.id.counter);
         Counter.setText("Count: " + count);
         final MediaPlayer mp = MediaPlayer.create(this, R.raw.test);
@@ -36,6 +37,16 @@ public class MainActivity extends ActionBarActivity {
                     mp.start();
                     count++;
                     Counter.setText("Count: " + count);
+                    if (button == 0) {
+                        ShhButton.setImageResource(R.drawable.awkward_button);
+                        button++;
+                    } else if (button == 1) {
+                        ShhButton.setImageResource(R.drawable.angry_button);
+                        button++;
+                    } else {
+                        ShhButton.setImageResource(R.drawable.normal_button);
+                        button = 0;
+                    }
                 }
             }
         });
