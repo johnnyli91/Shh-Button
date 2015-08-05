@@ -25,9 +25,9 @@ public class MainActivity extends Activity {
         Button3.setImageResource(R.drawable.red_face);
         ImageView Settings = (ImageView) findViewById(R.id.settings);
         Settings.setImageResource(R.drawable.the_settings);
-        final MediaPlayer mp1 = MediaPlayer.create(this, R.raw.test);
-        final MediaPlayer mp2 = MediaPlayer.create(this, R.raw.test);
-        final MediaPlayer mp3 = MediaPlayer.create(this, R.raw.test);
+        final MediaPlayer mp1 = MediaPlayer.create(this, R.raw.shhh2);
+        final MediaPlayer mp2 = MediaPlayer.create(this, R.raw.quiet);
+        final MediaPlayer mp3 = MediaPlayer.create(this, R.raw.cough);
         Button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
